@@ -6,19 +6,22 @@
 module.exports = {
 
   development: {
-    client: 'sqlite3',
+    client: 'mysql2',
     connection: {
-      filename: './dev.sqlite3'
+      host: 'localhost',
+      user: 'root',
+      password: '',
+      database: 'db_crud_express'
     }
-  },
+  },  
 
   staging: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
+      database: 'db_crud_express',
+      user:     'root',
+      password: ''
+    },  
     pool: {
       min: 2,
       max: 10
@@ -31,9 +34,9 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: 'db_crud_express',
+      user:     'root',
+      password: ''
     },
     pool: {
       min: 2,
