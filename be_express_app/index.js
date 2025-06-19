@@ -1,28 +1,31 @@
 const express = require('express');
+
+// import module cors supaya backend bisa diakses dari frontend lain (Next.js)
 const cors = require('cors');
+
+// import knex untuk koneksi & query database
 const knex = require('knex');
+const db = knex(require('./knexfile').development);
+
+// inisialisasi app express
 const app = express();
 const port = 5000;
 
-// koneksi ke database MySQL
-const db = knex(require('./knexfile').development);
-
-// middleware
 app.use(cors());
-app.use(express.json()); // penting untuk parsing req.body dari JSON
+app.use(express.json());
 
-// GET semua user
+// ROUTE: GET semua data user
 app.get('/users', async (req, res) => {
-    try {
-      const users = await db('users').select();
-      console.log('Data dari DB:', users);
-      res.json(users);
-    } catch (err) {
-      res.status(500).json({ error: err.message });
-    }
-  });  
+  try {
+    const users = await db('users').select();  // ambil semua data dari tabel 'users'
+    res.json(users);                           // kirim data ke frontend format JSON
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
-// start server
+
+// === Running Server ===
 app.listen(port, () => {
-  console.log(`✅ Server running at http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });
