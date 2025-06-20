@@ -1,3 +1,4 @@
+// app/page.tsx
 'use client'; // instruksi Next.js bahwa ini komponen client-side, bisa pakai hook dll
 
 // import library
@@ -46,6 +47,15 @@ export default function Home() {
           <p className="text-gray-300 text-lg">Kelola data pengguna dengan mudah</p>
         </div>
         {/* HEADING END */}
+
+        {/* ADD BUTTON */}
+        <Link 
+            href="/add"
+            className="text-center justify-center mb-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-0.5 flex items-center font-semibold border border-blue-500/20"
+          >
+            Tambah User
+        </Link>
+        {/* ADD BUTTON END */}
 
         {/* MAIN CONTAINER: kotak besar untuk menampilkan user list */}
         <div className="bg-gray-800 rounded-xl shadow-2xl border border-gray-700 overflow-hidden backdrop-blur-sm">
