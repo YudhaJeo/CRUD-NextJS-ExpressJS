@@ -1,13 +1,12 @@
-const express = require('express');
-const cors = require('cors');
-const userRoutes = require('./routes/userRoutes');
+// /src/app.js
+import express from 'express';
+import cors from 'cors';
+import userRoutes from './routes/userRoutes.js';
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-
-// daftarkan route user
 app.use('/', userRoutes);
 
-module.exports = app;
+export default app;

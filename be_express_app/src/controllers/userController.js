@@ -1,14 +1,11 @@
 // src/controllers/userController.js
-const userModel = require('../models/userModel');
+import { getAllUsers } from '../models/userModel.js';
 
-// controller buat get semua user
-const getUsers = async (req, res) => {
+export const getUsers = async (req, res) => {
   try {
-    const users = await userModel.getAllUsers();
+    const users = await getAllUsers();
     res.json(users);
-  } catch (err){
-    res.status(500).json({error: err.message})
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
-
-module.exports = { getUsers }

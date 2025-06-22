@@ -1,9 +1,6 @@
 // src/models/userModel.js
-const db = require('../core/config/knex')
+import db from '../core/config/knex.js';
 
-// Fungsi ambil semua user dari tabel
-const getAllUsers = () => {
-    return db('users').select();
+export const getAllUsers = () => {
+  return db('users').select();
 };
-
-module.exports = { getAllUsers }

@@ -59,7 +59,7 @@ export default function Home() {
         {/* ADD BUTTON END */}
 
         {/* MAIN CONTAINER: kotak besar untuk menampilkan user list */}
-        <div className="bg-gray-800 rounded-xl shadow-2xl border border-gray-700 overflow-hidden backdrop-blur-sm">
+        <div className="bg-black rounded-xl shadow-2xl border border-gray-700 overflow-hidden backdrop-blur-sm">
 
         {/* KONDISI: jika ada user yang bisa ditampilkan */}
         <div className="divide-y divide-gray-700">

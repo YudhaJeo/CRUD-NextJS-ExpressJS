@@ -1,10 +1,9 @@
 // src/routes/userRoutes.js
+import express from 'express';
+import { getUsers } from '../controllers/userController.js';
 
-const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/userController');
 
-// endpoint GET /users
-router.get('/users', userController.getUsers);
+router.get('/users', getUsers);
 
-module.exports = router;
+export default router;
