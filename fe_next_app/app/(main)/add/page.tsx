@@ -10,13 +10,16 @@ export default function AddUser() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    await fetch('http://localhost:5000/users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form)
-    });
-
-    router.push('/dashboard'); // balik ke dashboard setelah simpan
+    try {
+      await fetch('http://localhost:5000/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+      router.push('/');
+    } catch (err) {
+      console.error('Error menambahkan user: ', err)
+    }
   };
 
   return (
